@@ -24,6 +24,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.example.android.navigation.GameFragmentDirections.actionGameFragmentToGameWonFragment
 import com.example.android.navigation.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
@@ -101,13 +102,14 @@ class GameFragment : Fragment() {
                         // GameFragmentDirections.actionGameFragmentToGameWonFragment
                         // TODO (07) Add the newly-added parameters to the constructor for the Directions
                         // numQuestions and questionIndex
-                        view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+                        view.findNavController().navigate(
+                                GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions,questionIndex))
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
                     // TODO (04) Replace the action ID for the game over state with GameFragmentDirections
                     // GameFragmentDirections.actionGameFragmentToGameOverFragment
-                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
                 }
             }
         }
